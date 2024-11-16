@@ -1,4 +1,9 @@
-<?php include "view/header.php" ?>
+<?php 
+session_start();
+ob_start();
+include "../repository/connect.php";
+connect();
+include "view/header.php" ?>
 
 <body>
     <div class="wrapper">
