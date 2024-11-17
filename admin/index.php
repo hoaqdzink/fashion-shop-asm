@@ -1,9 +1,7 @@
 <?php 
 session_start();
 ob_start();
-include "../repository/connect.php";
-connect();
-include "view/header.php" ?>
+include "view/header.php" ?>    
 
 <body>
     <div class="wrapper">
@@ -56,6 +54,7 @@ include "view/header.php" ?>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/admin/script.js"></script>
+    <script src="../js/admin/category.js"></script>
 </body>
 
 </html>

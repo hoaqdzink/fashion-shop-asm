@@ -1,0 +1,49 @@
+.body-product-list {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    /* padding: 20px; */
+    background-color: #f4f4f4;
+    font-weight: 600;
+}
+.table-product-list {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    font-weight: 600;
+}
+.th-product-list,
+.td-product-list {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+.th-product-list {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+.tr-product-list:hover {
+    background-color: #f5f5f5;
+}
+.price-product-list {
+    color: #4CAF50;
+}
+.original-price-product-list {
+    text-decoration: line-through;
+    color: #999;
+}
+.discount-product-list {
+    color: #e53935;
+}
+.stock-product-list {
+    color: #2196F3;
+}
+.actions-product-list {
+    white-space: nowrap;
+}
+.button-product-list {
+    margin-right: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
