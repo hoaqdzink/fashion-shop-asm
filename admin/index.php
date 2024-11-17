@@ -23,14 +23,11 @@ include "view/header.php" ?>
                             case 'list_product':
                                 include "view/listProduct.php";
                                 break;
-                            case 'update_category':
-                                include "view/updateCategory.php";
-                                break;
                             case 'list_category':
                                 include "view/listCategory.php";
                                 break;
                             case 'update_account':
-                                include "view/updateAccount.php";
+                                include "view/listRole.php";
                                 break;
                             case 'list_account':
                                 include "view/listAccount.php";
@@ -55,6 +52,7 @@ include "view/header.php" ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/admin/script.js"></script>
     <script src="../js/admin/category.js"></script>
+    <script src="../js/admin/role.js"></script>
 </body>
 
 </html>

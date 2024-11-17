@@ -1,3 +1,0 @@
-<h1>
-    Cập nhật tài khoản
-</h1>
