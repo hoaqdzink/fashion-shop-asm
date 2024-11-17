@@ -34,9 +34,9 @@
                     Quản lý danh mục
                 </a>
                 <ul id="posts" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                    <li class="sidebar-item">
+                    <!-- <li class="sidebar-item">
                         <a href="index.php?act=update_category" class="sidebar-link">Cập nhật danh mục</a>
-                    </li>
+                    </li> -->
                     <li class="sidebar-item">
                         <a href="index.php?act=list_category" class="sidebar-link">Danh sách các danh mục</a>
                     </li>
@@ -49,7 +49,7 @@
                 </a>
                 <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
-                        <a href="index.php?act=update_account" class="sidebar-link">Cập nhật tài khoản</a>
+                        <a href="index.php?act=update_account" class="sidebar-link">Danh sách vai trò</a>
                     </li>
                     <li class="sidebar-item">
                         <a href="index.php?act=list_account" class="sidebar-link">Danh sách các tài khoản</a>

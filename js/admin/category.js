@@ -11,15 +11,15 @@ document.querySelectorAll(".edit-button-category-list").forEach(button => {
         document.getElementById("editCategoryId-category-form").value = categoryId.trim();
         document.getElementById("editCategoryName-category-form").value = categoryName.trim();
 
-        editDialog.style.display = "flex";
+        editDialogRole.style.display = "flex";
     });
 });
 
-cancelButton.addEventListener("click", () => {
-    editDialog.style.display = "none";
+cancelButtonRole.addEventListener("click", () => {
+    editDialogRole.style.display = "none";
 });
 
-editForm.addEventListener("submit", (e) => {
+editFormRole.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const categoryId = document.getElementById("editCategoryId-category-form").value;
@@ -46,7 +46,7 @@ editForm.addEventListener("submit", (e) => {
     })
     .catch(error => console.error("Error:", error));
 
-    editDialog.style.display = "none";
+    editDialogRole.style.display = "none";
 });
 
 // Các phần tử liên quan đến dialog thêm mới

@@ -64,8 +64,8 @@
                     required />
             </div>
             <div class="dialog-actions-category-list">
-                <button type="button" id="cancelButton-category-list" class="button-category-list">Thoát</button>
                 <button type="submit" class="button-category-list">Lưu</button>
+                <button type="button" id="cancelButton-category-list" class="button-category-list button-delete-category-list">Thoát</button>
             </div>
         </form>
     </div>
