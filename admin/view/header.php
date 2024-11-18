@@ -12,4 +12,5 @@
     <link rel="stylesheet" href="../css/admin/product-list.css">
     <link rel="stylesheet" href="../css/admin/category-list.css">
     <link rel="stylesheet" href="../css/admin/role-list.css">
+    <link rel="stylesheet" href="../css/admin/size-list.css">
 </head>

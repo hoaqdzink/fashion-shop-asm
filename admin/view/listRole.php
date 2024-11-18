@@ -42,7 +42,7 @@
                 <?php endforeach; ?>
             <?php else: ?>
                 <tr class="tr-role-list">
-                    <td colspan="3" class="td-role-list">Không có danh mục nào.</td>
+                    <td colspan="3" class="td-role-list">Không có role nào.</td>
                 </tr>
             <?php endif; ?>
         </tbody>
@@ -54,7 +54,7 @@
 <!-- Dialog -->
 <div id="editDialog-role-list" class="dialog-role-list">
     <div class="dialog-content-role-list">
-        <h2 class="dialog-title-role-list">Chỉnh sửa danh mục</h2>
+        <h2 class="dialog-title-role-list">Chỉnh sửa role</h2>
         <form id="editForm-role-list" class="form-role-list">
             <input type="hidden" id="editRoleId-role-form" name="role_id" />
             <div class="form-group-role-list">
