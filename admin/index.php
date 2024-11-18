@@ -26,11 +26,14 @@ include "view/header.php" ?>
                             case 'list_category':
                                 include "view/listCategory.php";
                                 break;
-                            case 'update_account':
+                            case 'list_role':
                                 include "view/listRole.php";
                                 break;
                             case 'list_account':
                                 include "view/listAccount.php";
+                                break;
+                            case 'list_size':
+                                include "view/listSize.php";
                                 break;
                             default:
                                 include "view/statistical.php";
@@ -53,6 +56,7 @@ include "view/header.php" ?>
     <script src="../js/admin/script.js"></script>
     <script src="../js/admin/category.js"></script>
     <script src="../js/admin/role.js"></script>
+    <script src="../js/admin/size.js"></script>
 </body>
 
 </html>

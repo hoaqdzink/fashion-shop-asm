@@ -31,12 +31,12 @@
             <li class="sidebar-item">
                 <a href="#" class="sidebar-link collapsed" data-bs-target="#posts" data-bs-toggle="collapse"
                     aria-expanded="false"><i class="fa-solid fa-sliders pe-2"></i>
-                    Quản lý danh mục
+                    Quản lý danh mục và size
                 </a>
                 <ul id="posts" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                    <!-- <li class="sidebar-item">
-                        <a href="index.php?act=update_category" class="sidebar-link">Cập nhật danh mục</a>
-                    </li> -->
+                    <li class="sidebar-item">
+                        <a href="index.php?act=list_size" class="sidebar-link">Danh sách size sản phẩm</a>
+                    </li>
                     <li class="sidebar-item">
                         <a href="index.php?act=list_category" class="sidebar-link">Danh sách các danh mục</a>
                     </li>
@@ -49,7 +49,7 @@
                 </a>
                 <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
-                        <a href="index.php?act=update_account" class="sidebar-link">Danh sách vai trò</a>
+                        <a href="index.php?act=list_role" class="sidebar-link">Danh sách vai trò</a>
                     </li>
                     <li class="sidebar-item">
                         <a href="index.php?act=list_account" class="sidebar-link">Danh sách các tài khoản</a>
