@@ -16,7 +16,7 @@ function connect(){
 
         // Tạo kết nối PDO
         $conn = new PDO($dsn, $username, $password, $options);
-        
+        // echo "Connecting";
         return $conn;
     } catch (PDOException $e) {
         echo "Connection failed: " . $e->getMessage();

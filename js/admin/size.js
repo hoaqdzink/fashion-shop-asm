@@ -25,15 +25,15 @@ editFormSize.addEventListener("submit", (e) => {
     const sizeId = document.getElementById("editSizeId-size-form").value;
     const sizeName = document.getElementById("editSizeName-size-form").value;
 
-    fetch("../../admin/view/form/editSize.php", {
-        method: "POST",
+    fetch("../../admin/view/editSize.php", {
+        method: "GET",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({
-            size_id: sizeId,
-            name: sizeName
-        })
+        // body: JSON.stringify({
+        //     size_id: sizeId,
+        //     name: sizeName
+        // })
     })
     .then(response => response.json())
     .then(data => {

@@ -4,10 +4,10 @@ ob_start();
 $repositoryConnection = realpath(__DIR__ . '/../../../repository/connect.php');
 require $repositoryConnection;
 
-
 $conn = connect();
 
 if (!$conn) {
+    echo "12313";
     die(json_encode(['conn' => $conn, 'error' => 'Fail']));
 }
 

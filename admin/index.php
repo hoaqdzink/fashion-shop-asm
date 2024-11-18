@@ -1,7 +1,8 @@
 <?php 
-session_start();
-ob_start();
-include "view/header.php" ?>    
+    session_start();
+    ob_start();
+    include "view/header.php" 
+?>    
 
 <body>
     <div class="wrapper">
