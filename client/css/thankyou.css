@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.thank-you-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.thank-you-container h2 {
+    font-size: 32px;
+    font-family: 'Brush Script MT', cursive;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.thank-you-container p {
+    font-size: 14px;
+    color: #666;
+}
+
+.thank-you-container span {
+    font-size: 18px;
+}
+
+.footer-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333;
+    padding: 20px;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+}
+
+.footer-banner p {
+    font-size: 14px;
+    color: #fff;
+    margin: 5px 0;
+}
+
+.footer-banner .free-tag {
+    color: #00ff00;
+    font-weight: bold;
+    border: 2px solid #00ff00;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 5px;
+    transform: rotate(-5deg); /* Rotation added */
+    display: inline-block; /* Ensures rotation without affecting layout */
+}
+
+.footer-banner a {
+    color: #00ff00;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.footer-banner a:hover {
+    text-decoration: underline;
+}
