@@ -150,3 +150,17 @@ input, select {
     font-size: 0.9rem;
     border-top: 1px solid #eaeaea;
 }
+
+.error-message {
+    color: #dc2626;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.hidden {
+    display: none;
+}
+
+input.invalid {
+    border-color: #dc2626;
+}

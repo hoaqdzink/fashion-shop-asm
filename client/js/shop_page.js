@@ -41,11 +41,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let selectedPriceRange = [];
     let currentPage = 1;
     let gridView = 'grid';
+    let selectedTags = [];
 
     function renderSizes() {
         const sizeFilter = document.getElementById('size-filter');
         sizeFilter.innerHTML = sizes.map(size => `
-            <label class="border rounded-md p-2 text-center cursor-pointer ${selectedSize.includes(size) ? 'bg-primary text-primary-foreground' : ''}">
+            <label class="border rounded-md p-2 text-center cursor-pointer ${selectedSize.includes(size) ? 'bg-black text-white' : ''}">
                 <input type="checkbox" class="hidden" value="${size}" ${selectedSize.includes(size) ? 'checked' : ''}>
                 ${size}
             </label>
@@ -126,8 +127,20 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderTags() {
         const tagFilter = document.getElementById('tag-filter');
         tagFilter.innerHTML = tags.map(tag => `
-            <button class="btn-outline">${tag}</button>
+            <button class="btn-outline rounded-md px-3 py-1 ${selectedTags.includes(tag) ? 'bg-black text-white' : ''}">${tag}</button>
         `).join('');
+
+        tagFilter.addEventListener('click', (e) => {
+            if (e.target.tagName === 'BUTTON') {
+                const tag = e.target.textContent;
+                if (selectedTags.includes(tag)) {
+                    selectedTags = selectedTags.filter(t => t !== tag);
+                } else {
+                    selectedTags.push(tag);
+                }
+                renderTags();
+            }
+        });
     }
 
     function renderProducts() {

@@ -28,3 +28,24 @@ document.querySelector('.apply-btn').addEventListener('click', function() {
         discountInput.value = '';
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const emailInput = document.getElementById('email-input');
+    const emailError = document.getElementById('email-error');
+
+    function validateEmail(email) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    }
+
+    emailInput.addEventListener('input', function() {
+        if (!validateEmail(this.value)) {
+            emailError.textContent = 'Please enter a valid email address';
+            emailError.classList.remove('hidden');
+            this.classList.add('invalid');
+        } else {
+            emailError.classList.add('hidden');
+            this.classList.remove('invalid');
+        }
+    });
+});

@@ -1,8 +1,16 @@
 // Size selector
 const sizeButtons = document.querySelectorAll('.size-btn');
 sizeButtons.forEach(button => {
+    button.classList.add('hover:bg-inherit', 'hover:text-inherit');
+    
     button.addEventListener('click', () => {
-        sizeButtons.forEach(btn => btn.classList.remove('bg-gray-900', 'text-white'));
+        // First remove all special styling from all buttons
+        sizeButtons.forEach(btn => {
+            btn.classList.remove('bg-gray-900', 'text-white');
+            btn.classList.add('bg-white', 'text-gray-900');
+        });
+        // Then add the selected styling to the clicked button
+        button.classList.remove('bg-white', 'text-gray-900');
         button.classList.add('bg-gray-900', 'text-white');
     });
 });
