@@ -52,6 +52,13 @@ include "view/header.php" ?>
             <?php include "view/footer.php" ?>
         </div>
     </div>
+    <?php
+        $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+        $baseUrl = $protocol . "://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['SCRIPT_NAME']);
+    ?>
+    <script>
+        const BASE_URL = "<?php echo rtrim($baseUrl, '/'); ?>";
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/admin/script.js"></script>
     <script src="../js/admin/category.js"></script>
