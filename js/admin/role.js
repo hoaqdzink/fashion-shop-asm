@@ -15,17 +15,17 @@ document.querySelectorAll(".edit-button-role-list").forEach(button => {
     });
 });
 
-cancelButtonRole.addEventListener("click", () => {
+cancelButtonRole?.addEventListener("click", () => {
     editDialogRole.style.display = "none";
 });
 
-editFormRole.addEventListener("submit", (e) => {
+editFormRole?.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const roleId = document.getElementById("editRoleId-role-form").value;
     const roleName = document.getElementById("editRoleName-role-form").value;
 
-    fetch("../../admin/view/form/editRole.php", {
+    fetch(`${BASE_URL}/view/form/editRole.php`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -56,22 +56,22 @@ const addButtonRole = document.getElementById("addButton-role-list");
 const cancelAddButtonRole = document.getElementById("cancelAddButton-role-list");
 
 // Hiển thị dialog thêm mới khi nhấn nút
-addButtonRole.addEventListener("click", () => {
+addButtonRole?.addEventListener("click", () => {
     addDialogRole.style.display = "flex";
 });
 
 // Hủy thêm mới và ẩn dialog
-cancelAddButtonRole.addEventListener("click", () => {
+cancelAddButtonRole?.addEventListener("click", () => {
     addDialogRole.style.display = "none";
 });
 
 // Gửi yêu cầu thêm mới danh mục
-addFormRole.addEventListener("submit", (e) => {
+addFormRole?.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const roleName = document.getElementById("addRoleName-role-form").value;
 
-    fetch("../../admin/view/form/addRole.php", {
+    fetch(`${BASE_URL}/view/form/addRole.php`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
