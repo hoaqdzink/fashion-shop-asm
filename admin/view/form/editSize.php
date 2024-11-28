@@ -1,7 +1,6 @@
 <?php
 session_start();
 ob_start();
-
 $repositoryConnection = realpath(__DIR__ . '/../../../repository/connect.php');
 require_once $repositoryConnection;
 
