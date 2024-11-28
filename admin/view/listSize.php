@@ -3,7 +3,7 @@
 
     $repositoryConnection = realpath(__DIR__ . '/../../repository/connect.php');
 
-    require $repositoryConnection;
+    require_once $repositoryConnection;
     $conn = connect();
     try {
         $sql = "SELECT * FROM Sizes";
