@@ -1,7 +1,7 @@
 <?php
-// session_start();
-// ob_start();
-echo"12312312";
+session_start();
+ob_start();
+
 $repositoryConnection = realpath(__DIR__ . '/../../../repository/connect.php');
 require $repositoryConnection;
 
@@ -11,7 +11,7 @@ if (!$conn) {
     die(json_encode(['conn' => $conn, 'error' => 'Fail']));
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $input = json_decode(file_get_contents("php://input"), true);
     $sizeId = $input['size_id'] ?? null;
     $sizeName = $input['name'] ?? null;
