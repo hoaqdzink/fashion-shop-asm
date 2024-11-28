@@ -15,18 +15,18 @@ document.querySelectorAll(".edit-button-size-list").forEach(button => {
     });
 });
 
-cancelButtonSize.addEventListener("click", () => {
+cancelButtonSize?.addEventListener("click", () => {
     editDialogSize.style.display = "none";
 });
 
-editFormSize.addEventListener("submit", (e) => {
+editFormSize?.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const sizeId = document.getElementById("editSizeId-size-form").value;
     const sizeName = document.getElementById("editSizeName-size-form").value;
 
-    fetch("../../admin/view/editSize.php", {
-        method: "GET",
+    fetch(`${BASE_URL}/view/form/editSize.php`, {
+        method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
@@ -56,22 +56,22 @@ const addButtonSize = document.getElementById("addButton-size-list");
 const cancelAddButtonSize = document.getElementById("cancelAddButton-size-list");
 
 // Hiển thị dialog thêm mới khi nhấn nút
-addButtonSize.addEventListener("click", () => {
+addButtonSize?.addEventListener("click", () => {
     addDialogSize.style.display = "flex";
 });
 
 // Hủy thêm mới và ẩn dialog
-cancelAddButtonSize.addEventListener("click", () => {
+cancelAddButtonSize?.addEventListener("click", () => {
     addDialogSize.style.display = "none";
 });
 
 // Gửi yêu cầu thêm mới danh mục
-addFormSize.addEventListener("submit", (e) => {
+addFormSize?.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const sizeName = document.getElementById("addSizeName-size-form").value;
 
-    fetch("../../admin/view/form/addSize.php", {
+    fetch(`${BASE_URL}/view/form/addSize.php`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

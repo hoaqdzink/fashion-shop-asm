@@ -1,6 +1,6 @@
-const editDialog = document.getElementById("editDialog-category-list");
-const editForm = document.getElementById("editForm-category-list");
-const cancelButton = document.getElementById("cancelButton-category-list");
+const editDialogCategory = document.getElementById("editDialog-category-list");
+const editFormCategory = document.getElementById("editForm-category-list");
+const cancelButtonCategory = document.getElementById("cancelButton-category-list");
 
 document.querySelectorAll(".edit-button-category-list").forEach(button => {
     button.addEventListener("click", (e) => {
@@ -11,21 +11,21 @@ document.querySelectorAll(".edit-button-category-list").forEach(button => {
         document.getElementById("editCategoryId-category-form").value = categoryId.trim();
         document.getElementById("editCategoryName-category-form").value = categoryName.trim();
 
-        editDialogRole.style.display = "flex";
+        editDialogCategory.style.display = "flex";
     });
 });
 
-cancelButtonRole.addEventListener("click", () => {
-    editDialogRole.style.display = "none";
+cancelButtonCategory?.addEventListener("click", () => {
+    editDialogCategory.style.display = "none";
 });
 
-editFormRole.addEventListener("submit", (e) => {
+editFormCategory?.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const categoryId = document.getElementById("editCategoryId-category-form").value;
     const categoryName = document.getElementById("editCategoryName-category-form").value;
 
-    fetch("../../admin/view/form/editCategory.php", {
+    fetch(`${BASE_URL}/view/form/editCategory.php`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -46,32 +46,32 @@ editFormRole.addEventListener("submit", (e) => {
     })
     .catch(error => console.error("Error:", error));
 
-    editDialogRole.style.display = "none";
+    editDialogCategory.style.display = "none";
 });
 
 // Các phần tử liên quan đến dialog thêm mới
-const addDialog = document.getElementById("addDialog-category-list");
-const addForm = document.getElementById("addForm-category-list");
-const addButton = document.getElementById("addButton-category-list");
-const cancelAddButton = document.getElementById("cancelAddButton-category-list");
+const addDialogCategory = document.getElementById("addDialog-category-list");
+const addFormCategory = document.getElementById("addForm-category-list");
+const addButtonCategory = document.getElementById("addButton-category-list");
+const cancelAddButtonCategory = document.getElementById("cancelAddButton-category-list");
 
 // Hiển thị dialog thêm mới khi nhấn nút
-addButton.addEventListener("click", () => {
-    addDialog.style.display = "flex";
+addButtonCategory?.addEventListener("click", () => {
+    addDialogCategory.style.display = "flex";
 });
 
 // Hủy thêm mới và ẩn dialog
-cancelAddButton.addEventListener("click", () => {
-    addDialog.style.display = "none";
+cancelAddButtonCategory?.addEventListener("click", () => {
+    addDialogCategory.style.display = "none";
 });
 
 // Gửi yêu cầu thêm mới danh mục
-addForm.addEventListener("submit", (e) => {
+addFormCategory?.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const categoryName = document.getElementById("addCategoryName-category-form").value;
 
-    fetch("../../admin/view/form/addCategory.php", {
+    fetch(`${BASE_URL}/view/form/addCategory.php`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -89,5 +89,5 @@ addForm.addEventListener("submit", (e) => {
     })
     .catch(error => console.error("Error:", error));
 
-    addDialog.style.display = "none";
+    addDialogCategory.style.display = "none";
 });
