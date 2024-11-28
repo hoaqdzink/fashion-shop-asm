@@ -30,10 +30,10 @@ editFormSize?.addEventListener("submit", (e) => {
         headers: {
             "Content-Type": "application/json"
         },
-        // body: JSON.stringify({
-        //     size_id: sizeId,
-        //     name: sizeName
-        // })
+        body: JSON.stringify({
+            size_id: sizeId,
+            name: sizeName
+        })
     })
     .then(response => response.json())
     .then(data => {
