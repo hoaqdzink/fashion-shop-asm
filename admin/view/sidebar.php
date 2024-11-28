@@ -19,7 +19,7 @@
                     aria-expanded="false"><i class="fa-solid fa-file-lines pe-2"></i>
                     Quản lý sản phẩm
                 </a>
-                <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                <ul id="pages" class="sidebar-dropdown collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
                         <a href="index.php?act=update_product" class="sidebar-link">Cập nhật sản phẩm</a>
                     </li>
@@ -33,7 +33,7 @@
                     aria-expanded="false"><i class="fa-solid fa-sliders pe-2"></i>
                     Quản lý danh mục và size
                 </a>
-                <ul id="posts" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                <ul id="posts" class="sidebar-dropdown collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
                         <a href="index.php?act=list_size" class="sidebar-link">Danh sách size sản phẩm</a>
                     </li>
@@ -47,7 +47,7 @@
                     aria-expanded="false"><i class="fa-regular fa-user pe-2"></i>
                     Quản lý tài khoản
                 </a>
-                <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                <ul id="auth" class="sidebar-dropdown collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
                         <a href="index.php?act=list_role" class="sidebar-link">Danh sách vai trò</a>
                     </li>
@@ -64,11 +64,11 @@
                     aria-expanded="false"><i class="fa-solid fa-share-nodes pe-2"></i>
                     Thông tin các đơn hàng
                 </a>
-                <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                <ul id="multi" class="sidebar-dropdown collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
                         <a href="#" class="sidebar-link collapsed" data-bs-target="#level-1"
                             data-bs-toggle="collapse" aria-expanded="false">Đơn hàng chờ duyệt</a>
-                        <ul id="level-1" class="sidebar-dropdown list-unstyled collapse">
+                        <ul id="level-1" class="sidebar-dropdown collapse">
                             <li class="sidebar-item">
                                 <a href="#" class="sidebar-link">Đơn hàng đang giao</a>
                             </li>

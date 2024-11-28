@@ -1,7 +1,16 @@
 <?php 
     session_start();
     ob_start();
-    include "view/header.php" 
+    include "../repository/connect.php";
+    include "../repository/s3.php";
+    include "../model/category.php";
+    include "../model/size.php";
+    include "../model/color.php";
+    include "../model/product.php";
+    include "../model/images.php";
+    include "../model/product_size.php";
+    include "view/header.php";
+    include "service/product_service.php"
 ?>    
 
 <body>
@@ -19,9 +28,35 @@
                                 include "view/statistical.php";
                                 break;
                             case 'update_product':
-                                include "view/updateProduct.php";
+                                $category = getAllCategory();
+                                $size = getAllSize();
+                                $colors = getAllColors();
+                                include "view/form/product/addProduct.php";
+                                break;
+                            case 'addProduct':
+                                checkInsert();
+                                break;
+                            case 'editProduct':
+                                if(isset($_GET['id'])){
+                                    $id = $_GET['id'];
+                                    $category = getAllCategory();
+                                    $size = getAllSize();
+                                    $colors = getAllColors();
+                                    $product = getByProductId($id);
+                                    $size_product = getProductSizeByIdProduct($id);
+                                    $images = getImagesbyProductId($id);
+                                }
+                                include "view/form/product/updateProduct.php";
+                                break;
+                            case 'product_update':
+                                update_product_by_id();
+                                include "view/form/product/updateProduct.php";
+                                break;
+                            case 'deleteProduct':
+                                deleteProduct();
                                 break;
                             case 'list_product':
+                                $productList =getAllProducts();
                                 include "view/listProduct.php";
                                 break;
                             case 'list_category':
