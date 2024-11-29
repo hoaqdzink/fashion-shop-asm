@@ -54,6 +54,9 @@
                     <li class="sidebar-item">
                         <a href="index.php?act=list_account" class="sidebar-link">Danh sách các tài khoản</a>
                     </li>
+                    <li class="sidebar-item">
+                        <a href="index.php?act=update_account" class="sidebar-link">Cập nhật tài khoản</a>
+                    </li>
                 </ul>
             </li>
             <li class="sidebar-header">

@@ -4,23 +4,20 @@
             <div class="col-6 text-start">
                 <p class="mb-0">
                     <a href="#" class="text-muted">
-                        <strong>CodzSwod</strong>
+                        <strong>FashionBK</strong>
                     </a>
                 </p>
             </div>
             <div class="col-6 text-end">
                 <ul class="list-inline">
                     <li class="list-inline-item">
-                        <a href="#" class="text-muted">Contact</a>
+                        <a href="#" class="text-muted">Trang chủ</a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#" class="text-muted">About Us</a>
+                        <a href="#" class="text-muted">Giới thiệu</a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#" class="text-muted">Terms</a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#" class="text-muted">Booking</a>
+                        <a href="#" class="text-muted">Thống kê</a>
                     </li>
                 </ul>
             </div>

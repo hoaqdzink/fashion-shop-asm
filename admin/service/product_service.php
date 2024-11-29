@@ -77,13 +77,10 @@
     }
 
     function deleteProduct(){
-        echo 'gọi tới 2';
         if(isset($_GET['id'])){
             $id=$_GET['id'];
-            echo 'gọi trong if';
             deleteProductById($id);
         }
-        echo 'đã thoát khỏi if';
         getAllProducts();
         header('location: index.php?act=list_product');
         exit();
@@ -91,7 +88,6 @@
 
     function update_product_by_id(){
         if(isset($_POST['product_update']) && ($_POST['product_update'])){
-            echo '<h4 style="color: green;">1.</h4><br>';
             $id = $_POST['id'];
             $name = $_POST['name'];
             $price = $_POST['price'];
@@ -109,8 +105,6 @@
                     return;
                 }
             } else {
-                // Nếu không có ảnh mới, giữ lại ảnh cũ
-                $product = getByProductId($id);
                 $product = getByProductId($id);
                 if ($product) {
                     $main_image_url = $product['main_image']; // Giữ lại ảnh cũ
@@ -119,7 +113,6 @@
                     return;
                 }
             }
-            echo '<h4 style="color: green;">2.</h4><br>';
             updateProductById($id, $name, $price, $original_price, $discount_percentage, $main_image_url, $description, $category_id, $color_id);
 
             if (!empty($size)) {

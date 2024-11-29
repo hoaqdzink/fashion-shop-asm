@@ -1,0 +1,17 @@
+.user-form {
+    background-color: #f8f9fa;
+    color: #000;
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.user-form .btn {
+    background-color: #000; 
+    color: #fff; 
+}
+
+.user-form .btn:hover {
+    background-color: #333; 
+}
+

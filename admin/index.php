@@ -7,10 +7,13 @@
     include "../model/size.php";
     include "../model/color.php";
     include "../model/product.php";
+    include "../model/role.php";
+    include "../model/user.php";
     include "../model/images.php";
     include "../model/product_size.php";
     include "view/header.php";
-    include "service/product_service.php"
+    include "service/product_service.php";
+    include "service/user_service.php";
 ?>    
 
 <body>
@@ -66,7 +69,25 @@
                                 include "view/listRole.php";
                                 break;
                             case 'list_account':
+                                $users = get_all_users();
                                 include "view/listAccount.php";
+                                break;
+                            case 'update_account':
+                                $roles = getAllRole();
+                                include "view/form/user/addUser.php";
+                                break;
+                            case 'adduser':
+                                insert();
+                                include "view/listAccount.php";
+                                break;
+                            case 'edituser':
+                                get_account_by_id();
+                                break;
+                            case 'account_update':
+                                updateUser();
+                                break;
+                            case 'deleteuser':
+                                deleteUser();
                                 break;
                             case 'list_size':
                                 include "view/listSize.php";

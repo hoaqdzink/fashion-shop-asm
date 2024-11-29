@@ -2,7 +2,7 @@
 session_start();
 ob_start();
 $repositoryConnection = realpath(__DIR__ . '/../../../repository/connect.php');
-require $repositoryConnection;
+require_once $repositoryConnection;
 
 
 $conn = connect();
