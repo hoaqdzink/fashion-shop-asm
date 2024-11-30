@@ -38,4 +38,5 @@
             ?>
         </tbody>
     </table>
+    <div id="pagination" class="pagination-container"></div>
 </body>

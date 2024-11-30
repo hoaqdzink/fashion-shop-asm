@@ -121,6 +121,7 @@
     <script src="../js/admin/category.js"></script>
     <script src="../js/admin/role.js"></script>
     <script src="../js/admin/size.js"></script>
+    <script src="../js/admin/product.js"></script>
 </body>
 
 </html>
