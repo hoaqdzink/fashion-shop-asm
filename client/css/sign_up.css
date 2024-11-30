@@ -1,0 +1,13 @@
+.signup-container {
+    min-height: 100vh;
+}
+.signup-form {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 2rem;
+}
+.decorative-image {
+    background-image: url('https://source.unsplash.com/random/1200x800?nature');
+    background-size: cover;
+    background-position: center;
+}

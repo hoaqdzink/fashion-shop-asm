@@ -19,6 +19,9 @@
                 case 'home':
                     include './client/view/home.php';
                     break;
+                case 'sign-up':
+                    include './client/view/sign-up/sign-up.php';
+                    break;
                 case 'product':
                     $category = getAllCategory();
                     $sizes = getAllSize();

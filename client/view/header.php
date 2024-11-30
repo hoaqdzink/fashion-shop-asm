@@ -33,8 +33,8 @@
                             <li class="menu-list-item"><a href="index.php?act=product">Sản phẩm</a></li>
                             <li class="menu-list-item"><a href="#new-arrivals">Giỏ hàng</a></li>
                             <li class="menu-list-item"><a href="#testimonials">Thông tin cá nhân</a></li>
-                            <li class="menu-list-item"><a href="#" id="signIn">Đăng nhập</a></li>
-                            <li class="menu-list-item"><button id="signUp">Đăng ký</button></li>
+                            <li class="menu-list-item"><a href="./client/view/login.php" id="signIn">Đăng nhập</a></li>
+                            <li class="menu-list-item"><a href="./client/view/sign_up.php"><button id="signUp">Đăng ký</button></a></li>
                         </ul>
                     </div>
                 </div>
