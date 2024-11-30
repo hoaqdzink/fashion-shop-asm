@@ -8,6 +8,8 @@
     include './model/product.php';
     include './model/product_size.php';
     include './model/images.php';
+    include './client/service/register.php';
+    include './model/user.php';
 
     include './client/view/header.php';
 ?>
@@ -18,9 +20,6 @@
             switch ($_GET['act']){
                 case 'home':
                     include './client/view/home.php';
-                    break;
-                case 'sign-up':
-                    include './client/view/sign-up/sign-up.php';
                     break;
                 case 'product':
                     $category = getAllCategory();
@@ -39,6 +38,15 @@
                         $subimage = getImagesbyProductId($id);
                     }
                     include './client/view/product_detail.php';
+                    break;
+                case 'sign-up':
+                    include './client/view/sign_up.php';
+                    break;
+                case 'register':
+                    insert();
+                    break;
+                case 'login':
+                    include './client/view/login.php';
                     break;
                 default:
                     include './client/view/home.php';

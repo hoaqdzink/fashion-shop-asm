@@ -20,6 +20,8 @@
         
             <script src="./js/client/home_page.js"></script>
             <script src="./js/client/product_page.js"></script>
+            <script src="./js/client/sign_up.js"></script>
+            <script src="./js/client/login.js"></script>
         </div>
 </body>
 </html>
