@@ -11,9 +11,9 @@
     include "../model/user.php";
     include "../model/images.php";
     include "../model/product_size.php";
-    include "view/header.php";
     include "service/product_service.php";
     include "service/user_service.php";
+    include "view/header.php";
 ?>    
 
 <body>

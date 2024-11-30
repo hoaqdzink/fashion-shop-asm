@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FASCO Demo Checkout</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/checkout.css">
+</head>
+<body>
+    <header class="bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold">FASCO</div>
+            <nav>
+            <ul class="flex space-x-4">
+                <li><a href="home_page.html" class="text-gray-600 hover:text-gray-900">Home</a></li>
+                <li><a href="shop_page.html" class="text-gray-600 hover:text-gray-900">Shop</a></li>
+                <li><a href="product_page.html" class="text-gray-600 hover:text-gray-900">Products</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-gray-900">Pages</a></li>
+            </ul>
+            </nav>
+            <div class="flex space-x-4">
+            <a href="#" class="text-gray-600 hover:text-gray-900"><svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg></a>
+            <a href="#" class="text-gray-600 hover:text-gray-900"><svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg></a>
+            <a href="#" class="text-gray-600 hover:text-gray-900"><svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg></a>
+            <a href="#" class="text-gray-600 hover:text-gray-900"><svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg></a>
+            </div>
+        </div>
+    </header>
+
+    <h1 class="page-title">FASCO Demo Checkout</h1>
+    
+    <main class="checkout-container">
+        <div class="checkout-form">
+            <section class="form-section">
+                <h2 class="section-title">Contact</h2>
+                <div class="form-row">
+                    <input type="email" 
+                           placeholder="Email Address" 
+                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                           title="Please enter a valid email address"
+                           id="email-input"
+                           required>
+                    <span id="email-error" class="error-message hidden"></span>
+                </div>
+                <span>Does not have any account?   </span><a href="#" class="create-account">Create Account</a>
+            </section>
+
+            <section class="form-section">
+                <h2 class="section-title">Delivery</h2>
+                <div class="form-row">
+                    <select required>
+                        <option value="">Country / Region</option>
+                        <option value="US">United States</option>
+                        <option value="UK">United Kingdom</option>
+                    </select>
+                </div>
+                <div class="form-row double">
+                    <input type="text" placeholder="First Name" required>
+                    <input type="text" placeholder="Last Name" required>
+                </div>
+                <div class="form-row">
+                    <input type="text" placeholder="Address" required>
+                </div>
+                <div class="form-row double">
+                    <input type="text" placeholder="City" required>
+                    <input type="text" placeholder="Postal Code" required>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2 class="section-title">Payment</h2>
+                <div class="form-row">
+                    <select required>
+                        <option value="credit">Credit Card</option>
+                        <option value="debit">Debit Card</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <input type="text" placeholder="Card Number" required>
+                </div>
+                <div class="form-row double">
+                    <input type="text" placeholder="Expiration Date" required>
+                    <input type="text" placeholder="Security Code" required>
+                </div>
+                <div class="form-row">
+                    <input type="text" placeholder="Card Holder Name" required>
+                </div>
+            </section>
+        </div>
+
+        <div class="order-summary">
+            <div class="product-item">
+                <img src="/placeholder.svg?height=120&width=100" alt="Mini Dress" class="product-image">
+                <div class="product-details">
+                    <h3>Mini Dress With Ruffled Straps</h3>
+                    <p class="product-color">Red</p>
+                </div>
+                <div class="product-price">$100.00</div>
+            </div>
+
+            <div class="discount-code">
+                <input type="text" placeholder="Discount code">
+                <button class="apply-btn">Apply</button>
+            </div>
+
+            <div class="price-breakdown">
+                <div class="price-row">
+                    <span>Subtotal</span>
+                    <span>$100.00</span>
+                </div>
+                <div class="price-row">
+                    <span>Shipping</span>
+                    <span>$40.00</span>
+                </div>
+                <div class="price-row total-row">
+                    <span>Total</span>
+                    <span>$140.00</span>
+                </div>
+            </div>
+
+            <button class="pay-now-btn">Pay Now</button>
+        </div>
+    </main>
+
+    <footer class="footer">
+        Copyright © 2023 FASCO - All Rights Reserved.
+    </footer> 
+
+    <script src="../js/checkout.js"></script>
+</body>
+</html>
