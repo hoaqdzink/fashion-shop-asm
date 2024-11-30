@@ -1,6 +1,7 @@
 let productsPerPage = 12; // Số sản phẩm mỗi trang
 let currentPage = 1; // Trang hiện tại
 let allProducts = []; // Danh sách toàn bộ sản phẩm
+let filteredProducts = []; // Danh sách sản phẩm đã lọc
 
 // Lấy danh sách sản phẩm từ HTML
 function loadProducts() {
@@ -19,17 +20,11 @@ function displayProducts(page = 1) {
     const startIndex = (page - 1) * productsPerPage;
     const endIndex = startIndex + productsPerPage;
 
-    let visibleProducts = 0;
-
-    allProducts.forEach((product, index) => {
-        const isVisible = getComputedStyle(product.element).display !== 'none'; // Kiểm tra trạng thái hiển thị
-        if (isVisible) {
-            visibleProducts++;
-            if (visibleProducts > startIndex && visibleProducts <= endIndex) {
-                product.element.style.display = 'block';
-            } else {
-                product.element.style.display = 'none';
-            }
+    filteredProducts.forEach((product, index) => {
+        if (index >= startIndex && index < endIndex) {
+            product.element.style.display = 'block'; // Hiển thị sản phẩm trong phạm vi trang
+        } else {
+            product.element.style.display = 'none'; // Ẩn sản phẩm ngoài phạm vi trang
         }
     });
 
@@ -38,24 +33,24 @@ function displayProducts(page = 1) {
 
 // Tạo nút phân trang
 function renderPagination(currentPage) {
-    const visibleProducts = allProducts.filter(
-        product => getComputedStyle(product.element).display !== 'none'
-    ).length;
-
-    const totalPages = Math.ceil(visibleProducts / productsPerPage);
+    const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
     const pagination = document.getElementById('pagination');
-    pagination.innerHTML = '';
+    pagination.innerHTML = ''; // Xóa phân trang cũ
 
-    for (let i = 1; i <= totalPages; i++) {
-        const li = document.createElement('li');
-        li.classList.add('page-item', i === currentPage ? 'active' : '');
-        li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
-        li.addEventListener('click', () => {
-            displayProducts(i);
-        });
-        pagination.appendChild(li);
+    // Nếu có nhiều hơn 1 trang, tạo nút phân trang
+    if (totalPages > 1) {
+        for (let i = 1; i <= totalPages; i++) {
+            const li = document.createElement('li');
+            li.classList.add('page-item', i === currentPage ? 'active' : '');
+            li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+            li.addEventListener('click', () => {
+                displayProducts(i); // Hiển thị trang mới
+            });
+            pagination.appendChild(li);
+        }
     }
 }
+
 
 // Lọc sản phẩm
 function filterProducts() {
@@ -64,7 +59,8 @@ function filterProducts() {
     const selectedPrice = document.querySelector('input[name="price"]:checked')?.id || '';
     const selectedCategory = document.querySelector('input[name="category"]:checked')?.value || '';
 
-    allProducts.forEach(product => {
+    // Lọc sản phẩm dựa trên các bộ lọc
+    filteredProducts = allProducts.filter(product => {
         let matchesSize = sizeFilters.length === 0 || sizeFilters.some(size => product.size.includes(size));
         let matchesColor = !selectedColor || product.color === selectedColor;
         let matchesCategory = !selectedCategory || product.category === selectedCategory;
@@ -88,17 +84,12 @@ function filterProducts() {
             }
         }
 
-        // Hiển thị hoặc ẩn sản phẩm
-        if (matchesSize && matchesColor && matchesPrice && matchesCategory) {
-            product.element.style.display = 'block'; // Hiển thị sản phẩm
-        } else {
-            product.element.style.display = 'none'; // Ẩn sản phẩm
-        }
+        return matchesSize && matchesColor && matchesPrice && matchesCategory;
     });
 
-    displayProducts(1); // Hiển thị trang đầu tiên sau khi lọc
-} 
-
+    // Sau khi lọc, hiển thị sản phẩm
+    displayProducts(1); // Hiển thị trang đầu tiên
+}
 // Gắn sự kiện cho các bộ lọc
 function setupFilters() {
     document.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(input => {
