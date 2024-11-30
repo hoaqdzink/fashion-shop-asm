@@ -98,9 +98,13 @@ body {
     border: 2px solid #333; 
 }
 .product {
-    display: none; /* Ẩn sản phẩm */
+    display: none; /* Ẩn mặc định */
+    opacity: 0; /* Bắt đầu với độ trong suốt */
+    transform: translateY(20px); /* Đẩy xuống một chút để thêm hiệu ứng */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Hiệu ứng mượt mà */
 }
 
-.product[style*="display: block"] {
-    display: block !important; /* Hiển thị sản phẩm */
+.product.fade-in {
+    opacity: 1; /* Hiển thị rõ ràng */
+    transform: translateY(0); /* Về vị trí ban đầu */
 }

@@ -87,9 +87,9 @@
                         // Chuyển danh sách size thành chuỗi
                         $sizesString = implode(',', $sizeNames);
                         echo '
-                             <a class="href-product col product mb-4" 
+                            <a class="href-product col product mb-4" 
                             href="index.php?act=product-details&productId='.$item['ProductID'].'" 
-                            style="display: none; text-decoration: none; color: inherit;" 
+                            style="display: none; text-decoration: none; color: inherit; opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease;" 
                             data-size="'.$sizesString.'"  
                             data-color="'.$item['Color'].'" 
                             data-category="'.$item['Category'].'" 
