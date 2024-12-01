@@ -10,7 +10,7 @@
                 $description = $_POST['description'];
                 $category_id = $_POST['category_id'];
                 $color_id = $_POST['color'];
-                $user_id = 1;
+                $user_id = $_SESSION['idUser'];
                 $size = isset($_POST['size']) ? $_POST['size'] : [];
 
                 if (isset($_FILES['main_image']) && $_FILES['main_image']['error'] == 0) {

@@ -25,6 +25,7 @@
                 <!-- nay co the thay doi theo dia chi -->
                 <div class="container-fluid">
                 <?php 
+                if(isset($_SESSION['role']) && ($_SESSION['role']==1)) {
                     if (isset($_GET['act'])) {
                         switch ($_GET['act']) {
                             case 'statistical':
@@ -99,6 +100,9 @@
                     } else {
                         include "view/statistical.php";
                     }
+                }else{
+                    header('location: /fashion-shop-asm/index.php');
+                }
                 ?>
                 </div>    
             </main>

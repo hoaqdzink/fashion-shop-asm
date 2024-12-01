@@ -108,3 +108,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Automatically update the year in the copyright notice
 document.getElementById('year').textContent = new Date().getFullYear();
+
+document.addEventListener('DOMContentLoaded', () => {
+    const avatar = document.getElementById('userDropdown');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+
+    avatar.addEventListener('click', () => {
+        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Ẩn menu khi click ra ngoài
+    document.addEventListener('click', (e) => {
+        if (!avatar.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            dropdownMenu.style.display = 'none';
+        }
+    });
+});
