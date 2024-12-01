@@ -21,7 +21,7 @@
             <script src="./js/client/home_page.js"></script>
             <script src="./js/client/product_page.js"></script>
             <script src="./js/client/sign_up.js"></script>
-            <script src="./js/client/login.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
         </div>
 </body>
 </html>

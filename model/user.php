@@ -84,4 +84,45 @@
         $stmt->bindParam(':user_id', $user_id);
         return $stmt->execute();
     }
+
+    function checkLogin($username, $password) {
+        try {
+            $conn = connect();
+            $stmt = $conn->prepare("SELECT 
+                                        u.user_id,
+                                        u.full_name,
+                                        u.email,
+                                        r.role_name,
+                                        r.role_id
+                                    FROM 
+                                        users u
+                                    JOIN 
+                                        roles r ON u.role_id = r.role_id
+                                    WHERE 
+                                        u.email = :username
+                                        AND u.password = :password");
+            // Binding parameters
+            $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+            $stmt->bindParam(':password', $password, PDO::PARAM_STR);
+            
+            // Execute the statement
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            
+            $result = $stmt->fetch();
+            
+            // Kiểm tra kết quả
+            if ($result) {
+                return $result; // Trả về toàn bộ thông tin
+            } else {
+                return null; // Không tìm thấy thông tin đăng nhập
+            }
+        } catch (PDOException $e) {
+            // Xử lý lỗi
+            error_log("Database error: " . $e->getMessage());
+            return null;
+        }
+    }
+    
+                                    
 ?>

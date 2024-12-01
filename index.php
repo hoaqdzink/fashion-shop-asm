@@ -48,6 +48,15 @@
                 case 'login':
                     include './client/view/login.php';
                     break;
+                case 'signin':
+                    login();
+                    break;
+                case 'logout':
+                    unset($_SESSION['role']);
+                    unset($_SESSION['idUser']);
+                    unset($_SESSION['fullname']);
+                    header('Location: index.php');
+                    break;
                 default:
                     include './client/view/home.php';
                     break;

@@ -21,7 +21,7 @@
             <div class="header">
                 <div class="col-md-2">
                     <div class="logo">
-                        <p>FashionBK</p>
+                        <p><b>FashionBK</b></p>
                     </div>
                 </div>
 
@@ -34,9 +34,26 @@
                             <li class="menu-list-item"><a href="index.php?act=home">Trang chủ</a></li>
                             <li class="menu-list-item"><a href="index.php?act=product">Sản phẩm</a></li>
                             <li class="menu-list-item"><a href="#new-arrivals">Giỏ hàng</a></li>
-                            <li class="menu-list-item"><a href="#testimonials">Thông tin cá nhân</a></li>
-                            <li class="menu-list-item"><a href="index.php?act=login" id="signIn">Đăng nhập</a></li>
-                            <li class="menu-list-item"><a href="index.php?act=sign-up"><button id="signUp">Đăng ký</button></a></li>
+                            <?php 
+                                if(isset($_SESSION['idUser'])&&($_SESSION['idUser']!="")){
+                                    echo '
+                                        <li class="menu-list-item dropdown">
+                                            <img src="./img/image.png" alt="Avatar" class="avatar" id="userDropdown">
+                                            <div class="dropdown-menu">
+                                                <a href="index.php?act=profile">Thông tin cá nhân</a>
+                                                <a href="index.php?act=change-password">Đổi mật khẩu</a>
+                                                <a href="index.php?act=logout">Đăng xuất</a>
+                                            </div>
+                                        </li>
+                                    ';
+                                }else{
+                                    echo '
+                                        <li class="menu-list-item"><a href="index.php?act=login" id="signIn">Đăng nhập</a></li>
+                                        <li class="menu-list-item"><a href="index.php?act=sign-up"><button id="signUp">Đăng ký</button></a></li>
+                                    ';
+                                }
+                            
+                            ?>
                         </ul>
                     </div>
                 </div>
