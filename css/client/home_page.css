@@ -1046,8 +1046,9 @@ h1 {
 }
 
 .menu-list-item {
-    display: inline-block;
+    /* display: inline-block; */
     margin: 0 15px;
+    float: left;
 }
 
 .menu-list-item a {
@@ -1075,3 +1076,154 @@ h1 {
     background-color: #0056b3;
     color: #808080;
 }
+
+/* Thêm styles cho hamburger menu */
+.nav-toggle {
+    display: none;
+    padding: 0.5em;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    right: 0.1em;
+    top: 1em;
+    z-index: 1000;
+}
+
+.hamburger {
+    display: block;
+    position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    width: 2em;
+    height: 3px;
+    background: #333;
+    transition: transform 0.3s;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+}
+
+.hamburger::before { top: 6px; }
+.hamburger::after { bottom: 6px; }
+
+/* Styles khi menu được mở */
+.nav-open .nav-menu {
+    transform: translateX(0);
+}
+
+.nav-open .hamburger {
+    transform: rotate(45deg);
+}
+
+.nav-open .hamburger::before {
+    transform: rotate(90deg) translateX(-6px);
+}
+
+.nav-open .hamburger::after {
+    opacity: 0;
+}
+
+/* Media queries cho responsive */
+@media screen and (max-width: 600px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        position: fixed;
+        background: white;
+        width: 100%;
+        height: 25vh;
+        top: 0;
+        right: -100%;
+        bottom: 0;
+        padding: 2em;
+        transition: right 0.3s ease-out, visibility 0.3s ease-out, opacity 0.3s ease-out;
+        z-index: 999;
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        display: none;
+    }
+
+    .nav-open .nav-menu {
+        right: 0;
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        display: block;
+    }
+
+    .menu-list {
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        width: 100%;
+    }
+
+    .menu-list-item {
+        margin: 0.5em 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu-list-item a {
+        display: block;
+        padding: 8px 0;
+        width: 100%;
+    }
+
+    #signIn, #signUp {
+        display: inline-block;
+        width: 80%;
+        margin: 5px 0;
+        text-align: center;
+        padding: 8px 0;
+    }
+
+    #signIn {
+        background-color: transparent;
+        border: 2px solid black;
+        color: black;
+    }
+
+    #signUp {
+        background-color: black;
+        color: white;
+        border: none;
+    }
+
+    .auth-buttons {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+    }
+
+    .menu-list-item button {
+        width: 80%;
+        margin: 5px 0;
+        padding: 8px 0;
+    }
+
+    .header {
+        position: relative;
+        padding: 1em;
+    }
+
+    .logo {
+        z-index: 1001;
+    }
+}
+
