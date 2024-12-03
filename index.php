@@ -8,7 +8,7 @@
     include './model/product.php';
     include './model/product_size.php';
     include './model/images.php';
-    include './client/service/register.php';
+    include './client/service/userService.php';
     include './model/user.php';
 
     include './client/view/header.php';
@@ -56,6 +56,12 @@
                     unset($_SESSION['idUser']);
                     unset($_SESSION['fullname']);
                     header('Location: index.php');
+                    break;
+                case 'change-password':
+                    include('./client/view/chagepassword.php');
+                    break;
+                case 'submit-change-password':
+                    updatePasswordBySessionUserid();
                     break;
                 default:
                     include './client/view/home.php';

@@ -36,7 +36,7 @@
                         <td class="td-role-list"><?= htmlspecialchars($role['role_name']) ?></td>
                         <td class="td-role-list actions-role-list">
                             <button class="button-role-list edit-button-role-list">Chỉnh sửa</button>
-                            <button class="button-role-list button-delete-role-list">Xóa</button>
+                            <a href="index.php?act=deleteRole&id=<?= htmlspecialchars($role['role_id']) ?>" class="button-size-list button-delete-size-list">Xóa</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

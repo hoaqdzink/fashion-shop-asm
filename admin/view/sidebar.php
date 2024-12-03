@@ -2,7 +2,7 @@
     <!-- Content For Sidebar -->
     <div class="h-100">
         <div class="sidebar-logo">
-            <a href="index.php">FashionBK</a>
+            <a href="/fashion-shop-asm/index.php">FashionBK</a>
         </div>
         <ul class="sidebar-nav">
             <li class="sidebar-header">

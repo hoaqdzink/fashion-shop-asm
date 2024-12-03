@@ -66,6 +66,21 @@
                             case 'list_category':
                                 include "view/listCategory.php";
                                 break;
+                            case 'deleteCategory':
+                                if(isset($_GET['id'])){
+                                    $id=$_GET['id'];
+                                    deleteCategory($id);
+                                }
+                                header('location: index.php?act=list_category');
+                                exit();
+                                break;
+                            case 'deleteSize':
+                                if(isset($_GET['id'])){
+                                    $id=$_GET['id'];
+                                    deleteSize($id);
+                                }
+                                header('location: index.php?act=list_size');
+                                break;
                             case 'list_role':
                                 include "view/listRole.php";
                                 break;
@@ -76,6 +91,13 @@
                             case 'update_account':
                                 $roles = getAllRole();
                                 include "view/form/user/addUser.php";
+                                break;
+                            case 'deleteRole':
+                                if(isset($_GET['id'])){
+                                    $id=$_GET['id'];
+                                    deleteRole($id);
+                                }
+                                header('location: index.php?act=list_role');
                                 break;
                             case 'adduser':
                                 insert();
