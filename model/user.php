@@ -123,6 +123,35 @@
             return null;
         }
     }
+
+    function checkPassword($userid) {
+        $conn = connect();
+    
+        $stmt = $conn->prepare("SELECT password FROM users WHERE user_id = :userid");
+        $stmt->bindParam(':userid', $userid, PDO::PARAM_INT);
+    
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $result = $stmt->fetch();
+        return $result ? $result['password'] : null;
+    }
+
+    function update_password($userid, $password) {
+        $conn = connect();
+    
+        $stmt = $conn->prepare("UPDATE users SET password = :password WHERE user_id = :userid");
+    
+        $stmt->bindParam(':password', $password, PDO::PARAM_STR);
+        $stmt->bindParam(':userid', $userid, PDO::PARAM_INT);
+    
+        $stmt->execute();
+    
+        if ($stmt->rowCount() > 0) {
+            return true; 
+        } else {
+            return false; 
+        }
+    }
     
                                     
 ?>

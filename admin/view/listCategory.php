@@ -37,7 +37,7 @@
                         <td class="td-category-list"><?= htmlspecialchars($category['name']) ?></td>
                         <td class="td-category-list actions-category-list">
                             <button class="button-category-list edit-button-category-list">Chỉnh sửa</button>
-                            <button class="button-category-list button-delete-category-list">Xóa</button>
+                            <a href="index.php?act=deleteCategory&id=<?php echo htmlspecialchars($category['category_id']); ?>" class="button-category-list button-delete-category-list">Xóa</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

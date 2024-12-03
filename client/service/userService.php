@@ -49,5 +49,33 @@
             }
         }
     }
+
+    function updatePasswordBySessionUserid(){
+        $id = $_SESSION['idUser'];
+        if(isset($_POST['submit-change-password']) && $_POST['submit-change-password']){
+            $currentPassword = trim($_POST['currentPassword']);
+            $newPassword = trim($_POST['newPassword']);
+            
+            $checkPassword = checkPassword($id);
+            if($currentPassword == $checkPassword){
+                if(update_password($id, $newPassword)){
+                    echo "<script>
+                        alert('cập nhật thành công!');
+                        window.location.href = 'index.php';
+                    </script>";
+                }else{
+                    echo "<script>
+                        alert('cập nhật thất bại!');
+                        window.location.href = 'index.php?act=change-password';
+                    </script>";
+                }
+            }else{
+                echo "<script>
+                        alert('Mật khẩu hiện tại không đúng!');
+                        window.location.href = 'index.php?act=change-password';
+                    </script>";
+            }
+        }
+    }
     
 ?>

@@ -36,7 +36,7 @@
                         <td class="td-size-list"><?= htmlspecialchars($size['name']) ?></td>
                         <td class="td-size-list actions-size-list">
                             <button class="button-size-list edit-button-size-list">Chỉnh sửa</button>
-                            <button class="button-size-list button-delete-size-list">Xóa</button>
+                            <a href="index.php?act=deleteSize&id=<?= htmlspecialchars($size['size_id']) ?>" class="button-size-list button-delete-size-list">Xóa</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
