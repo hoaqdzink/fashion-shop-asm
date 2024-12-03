@@ -25,12 +25,16 @@
                     </div>
                 </div>
 
+                <button class="nav-toggle" aria-label="toggle navigation">
+                    <span class="hamburger"></span>
+                </button>
+
                 <div class="col-md-1">
                 </div>
 
-                <div class="col-md-9">
+                <div class="col-md-9 nav-menu">
                     <div class="menu">
-                        <ul class="menu-list">
+                        <ul class="menu-list" id="my-menu-list">
                             <li class="menu-list-item"><a href="index.php?act=home">Trang chủ</a></li>
                             <li class="menu-list-item"><a href="index.php?act=product">Sản phẩm</a></li>
                             <li class="menu-list-item"><a href="#new-arrivals">Giỏ hàng</a></li>

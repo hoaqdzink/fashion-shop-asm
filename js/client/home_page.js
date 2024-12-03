@@ -124,3 +124,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const navToggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav-menu');
+    
+    navToggle?.addEventListener('click', () => {
+        document.body.classList.toggle('nav-open');
+    });
+
+    // Đóng menu khi click vào link
+    document.querySelectorAll('.menu-list-item a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.body.classList.remove('nav-open');
+        });
+    });
+});
