@@ -36,9 +36,9 @@
                         $colors = getAllColors();
                         $productSize = getProductSizeByIdProduct($id);
                         $subimage = getImagesbyProductId($id);
+                        include './client/view/product_detail.php';
+                        break;
                     }
-                    include './client/view/product_detail.php';
-                    break;
                 case 'sign-up':
                     include './client/view/sign_up.php';
                     break;
@@ -62,6 +62,9 @@
                     break;
                 case 'submit-change-password':
                     updatePasswordBySessionUserid();
+                    break;
+                case 'cart-view':
+                    include('./client/view/cart_view.php');
                     break;
                 default:
                     include './client/view/home.php';
