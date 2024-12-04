@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/client/product_detail.css">
     <link rel="stylesheet" href="./css/client/sign-up.css">
     <link rel="stylesheet" href="./css/client/login.css">
+    <link rel="stylesheet" href="./css/client/cart_view.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,7 +38,7 @@
                         <ul class="menu-list" id="my-menu-list">
                             <li class="menu-list-item"><a href="index.php?act=home">Trang chủ</a></li>
                             <li class="menu-list-item"><a href="index.php?act=product">Sản phẩm</a></li>
-                            <li class="menu-list-item"><a href="#new-arrivals">Giỏ hàng</a></li>
+                            <li class="menu-list-item"><a href="index.php?act=cart-view">Giỏ hàng</a></li>
                             <?php 
                                 if(isset($_SESSION['idUser'])&&($_SESSION['idUser']!="")){
                                     echo '

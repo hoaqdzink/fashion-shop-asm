@@ -28,7 +28,7 @@ function updateCountdown() {
 // Carousel functionality
 let currentSlide = 0;
 const carousel = document.getElementById('deals-carousel');
-const slides = carousel.children;
+const slides = carousel?.children;
 const navContainer = document.getElementById('carousel-nav');
 
 // Create navigation dots

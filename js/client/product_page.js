@@ -135,5 +135,5 @@ function setGrid(columns) {
     productGrid.className = `row row-cols-1 row-cols-sm-2 row-cols-md-${columns} g-4`; // Thay đổi số cột
 }
 
-document.getElementById('grid-3').addEventListener('click', () => setGrid(3));
-document.getElementById('grid-4').addEventListener('click', () => setGrid(4));
+document.getElementById('grid-3')?.addEventListener('click', () => setGrid(3));
+document.getElementById('grid-4')?.addEventListener('click', () => setGrid(4));
