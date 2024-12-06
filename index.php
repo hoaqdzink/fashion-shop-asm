@@ -9,6 +9,7 @@
     include './model/product_size.php';
     include './model/images.php';
     include './client/service/userService.php';
+    include './client/service/cartService.php';
     include './model/user.php';
 
     include './client/view/header.php';
@@ -66,6 +67,21 @@
                 case 'cart-view':
                     include('./client/view/cart_view.php');
                     break;
+                case 'bill-view':
+                    include('./client/view/bill_view.php');
+                    break;
+                case 'bill-details':
+                    if(isset($_GET['billId'])){
+                        $id=$_GET['billId'];
+                        // $sizes = getAllSize();
+                        // $allProduct=getAllProducts();
+                        // $colors = getAllColors();
+                        // $productSize = getProductSizeByIdProduct($id);
+                        // $subimage = getImagesbyProductId($id);
+                        $billDetails = getAllProductsByBill($id);
+                        include './client/view/bill_detail_view.php';
+                        break;
+                    }
                 default:
                     include './client/view/home.php';
                     break;

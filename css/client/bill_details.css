@@ -1,0 +1,74 @@
+.bill-detail-table-container {
+    overflow-x: auto;
+}
+
+.bill-detail-table {
+    min-width: 600px;
+}
+
+.bill-detail-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.bill-detail-row {
+    vertical-align: middle;
+}
+
+.bill-detail-total-row {
+    background-color: #f8f9fa;
+}
+
+@media (max-width: 767px) {
+    .bill-detail-table {
+        min-width: unset;
+    }
+
+    .bill-detail-table,
+    .bill-detail-table tbody,
+    .bill-detail-table tr,
+    .bill-detail-table td {
+        display: block;
+    }
+
+    .bill-detail-table thead {
+        display: none;
+    }
+
+    .bill-detail-row {
+        margin-bottom: 1rem;
+        border: 1px solid #dee2e6;
+        border-radius: 0.25rem;
+        padding: 0.5rem;
+    }
+
+    .bill-detail-row td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .bill-detail-row td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0.5rem;
+        width: 45%;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    .bill-detail-image {
+        margin: 0 auto;
+        display: block;
+    }
+
+    .bill-detail-total-row td {
+        text-align: right;
+        padding-left: 0;
+    }
+
+    .bill-detail-total-row td:before {
+        content: none;
+    }
+}
