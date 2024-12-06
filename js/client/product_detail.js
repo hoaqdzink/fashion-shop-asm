@@ -18,3 +18,16 @@ decreaseButton?.addEventListener('click', function() {
         hiddenQuantity.value = quantity;
     }
 });
+
+function updateSize(sizeId, sizeName) {
+    document.getElementById('selected_size_id').value = sizeId;
+    document.getElementById('selected_size_name').value = sizeName;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    var selectedSize = document.querySelector('input[name="size"]:checked');
+    if (selectedSize) {
+        var sizeName = document.querySelector('label[for="size_' + selectedSize.value + '"]').textContent.trim();
+        updateSize(selectedSize.value, sizeName);
+    }
+});

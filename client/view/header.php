@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./css/client/sign-up.css">
     <link rel="stylesheet" href="./css/client/login.css">
     <link rel="stylesheet" href="./css/client/cart_view.css">
+    <link rel="stylesheet" href="./css/client/bill_details.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,6 +43,7 @@
                             <?php 
                                 if(isset($_SESSION['idUser'])&&($_SESSION['idUser']!="")){
                                     echo '
+                                        <li class="menu-list-item"><a href="index.php?act=bill-view">Lịch sử mua hàng</a></li>
                                         <li class="menu-list-item dropdown">
                                             <img src="./img/image.png" alt="Avatar" class="avatar" id="userDropdown">
                                             <div class="dropdown-menu">

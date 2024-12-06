@@ -47,6 +47,31 @@
         return $kq;
     }
 
+    function getAllProductsByBill($billId){
+        $conn = connect();
+        $stmt = $conn->prepare("SELECT 
+            p.product_id AS ProductID,
+            p.name AS ProductName,
+            bd.price AS Price,
+            bd.amount AS Amount,
+            bd.bill_id AS BillId,
+            bd.amount AS Quantity,
+            s.name AS SizeName,
+            co.name AS ColorName,
+            p.main_image AS Image
+            FROM 
+                products p
+            INNER JOIN bill_detail bd ON bd.product_id = p.product_id
+            INNER JOIN sizes s ON s.size_id = bd.size_id
+            INNER JOIN colors co ON co.color_id = bd.color_id
+            WHERE bd.bill_id = :id
+        ");
+        $stmt->bindParam(':id', $billId, PDO::PARAM_INT);
+        $stmt->execute();
+        $kq = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $kq;
+    }
+
     function getByProductId($id) {
         $conn = connect();
         $stmt = $conn->prepare("SELECT * FROM products WHERE product_id = :id");

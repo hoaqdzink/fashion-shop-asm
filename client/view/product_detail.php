@@ -10,6 +10,8 @@ if (isset($_POST['add_to_cart'])) {
         $_SESSION['cart'][$productId] = [
             'product_name' => $productName,
             'product_price' => $_POST['product_price'],
+            'size_id' => $_POST['size_id'],
+            'size_name' => $_POST['size_name'],
             'product_image' => $_POST['product_image'],
             'quantity' => $quantity
         ];
@@ -55,14 +57,36 @@ if (isset($_POST['add_to_cart'])) {
             <!-- Sizes -->
             <div class="mb-3">
                 <strong>Size:</strong>
-                <div class="d-flex">
+                <div class="d-flex flex-column">
                     <?php
                     if (isset($sizes) && is_array($sizes) && isset($productSize) && is_array($productSize)) {
-                        foreach ($productSize as $productItem) {
-                            foreach ($sizes as $sizeItem) {
-                                if ($productItem['size_id'] === $sizeItem['size_id']) {
-                                    echo '<span class="badge bg-light border me-2 mr-2">' . $sizeItem['name'] . '</span>';
-                                }
+                        $isFirst = true; // Biến để đánh dấu size đầu tiên
+                        foreach ($sizes as $size) {
+                            // Kiểm tra nếu size_id của size hiện tại có trong productSize
+                            if (in_array($size['size_id'], array_column($productSize, 'size_id'))) {
+                                // Xử lý tên size để tránh lỗi khi chứa dấu nháy
+                                $sizeName = htmlspecialchars($size['name'], ENT_QUOTES, 'UTF-8');
+                    ?>
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="size"
+                                        id="size_<?php echo $size['size_id']; ?>"
+                                        value="<?php echo $size['size_id']; ?>"
+                                        <?php
+                                        // Chọn size đầu tiên mặc định
+                                        if ($isFirst) {
+                                            echo 'checked';
+                                            $isFirst = false;
+                                        }
+                                        ?>
+                                        onclick="updateSize('<?php echo $size['size_id']; ?>', '<?php echo $sizeName; ?>')">
+                                    <label class="form-check-label" for="size_<?php echo $size['size_id']; ?>">
+                                        <?php echo $size['name']; ?>
+                                    </label>
+                                </div>
+                    <?php
                             }
                         }
                     }
@@ -103,6 +127,8 @@ if (isset($_POST['add_to_cart'])) {
                 <input type="hidden" name="product_name" value="<?= $productId['name'] ?>">
                 <input type="hidden" name="product_price" value="<?= $productId['price'] ?>">
                 <input type="hidden" name="product_image" value="<?= $productId['main_image'] ?>">
+                <input type="text" id="selected_size_id" name="size_id">
+                <input type="text" id="selected_size_name" name="size_name">
                 <input type="hidden" name="quantity" id="hidden_quantity" value="1">
                 <button type="submit" name="add_to_cart" class="btn btn-primary">Thêm vào giỏ hàng</button>
             </form>

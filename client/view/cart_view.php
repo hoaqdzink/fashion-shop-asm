@@ -5,23 +5,6 @@ if (!isset($_SESSION['idUser'])) {
     exit();
 }
 
-
-if (isset($_POST['update_quantity'])) {
-    $productId = $_POST['product_id'];
-    $action = $_POST['action'];
-    if (isset($_SESSION['cart'][$productId])) {
-        $currentQuantity = $_SESSION['cart'][$productId]['quantity'];
-        if ($action == 'increase') {
-            $_SESSION['cart'][$productId]['quantity'] = $currentQuantity + 1;
-        } elseif ($action == 'decrease' && $currentQuantity > 1) {
-            $_SESSION['cart'][$productId]['quantity'] = $currentQuantity - 1;
-        }
-    }
-    header("Location: index.php?act=cart-view");
-    exit();
-}
-
-
 ?>
 
 
@@ -37,6 +20,7 @@ if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) {
         $productQuantity = $product['quantity'];
         $productPrice = $product['product_price'];
         $productImage = $product['product_image'];
+        $sizeName = $product['size_name'];
         $totalPrice = $productQuantity * $productPrice;
 ?>
         <div class="card-cart">
@@ -44,25 +28,16 @@ if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) {
                 <img src="<?= $productImage ?>" alt="<?= $productName ?>" class="product-image-cart">
 
                 <div class="product-details-cart">
-                    <h3 class="product-name-cart"><?= $productName ?></h3>
+                    <h3 class="product-name-cart"><a href="index.php?act=product-details&productId=<?= $productId ?>"><?= $productName ?></a></h3>
+                    <h3 class="product-name-cart">Size: <?= $sizeName ?></h3>
 
                     <div class="quantity-controls-cart">
-                        <form method="POST" action="">
-                            <input type="hidden" name="product_id" value="<?= $productId ?>">
-                            <input type="hidden" name="action" value="decrease">
-                            <button type="submit" name="update_quantity" class="quantity-btn-cart minus-btn-cart">-</button>
-                        </form>
-
-                        <span class="quantity-cart"><?= $productQuantity ?></span>
-
-                        <form method="POST" action="">
-                            <input type="hidden" name="product_id" value="<?= $productId ?>">
-                            <input type="hidden" name="action" value="increase">
-                            <button type="submit" name="update_quantity" class="quantity-btn-cart plus-btn-cart">+</button>
-                        </form>
+                        <button class="quantity-btn-cart plus-btn-cart" data-product-id="<?= $productId ?>" data-action="decrease">+</button>
+                        <span class="quantity-cart" id="quantity-<?= $productId ?>"><?= $productQuantity ?></span>
+                        <button class="quantity-btn-cart plus-btn-cart" data-product-id="<?= $productId ?>" data-action="increase">+</button>
                     </div>
                     <p class="price-cart"><?= number_format($productPrice, 0, ',', '.') ?> VNĐ</p>
-                    <p class="total-cart"><?= number_format($totalPrice, 0, ',', '.') ?> VNĐ</p>
+                    <p id="totalAmount-<?= $productId ?>" class="total-cart"><?= number_format($totalPrice, 0, ',', '.') ?> VNĐ</p>
                 </div>
             </div>
         </div>
