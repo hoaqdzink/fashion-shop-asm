@@ -30,6 +30,7 @@
             <script src="./js/client/home_page.js"></script>
             <script src="./js/client/product_page.js"></script>
             <script src="./js/client/sign_up.js"></script>
+            <script src="./js/client/navigation.js"></script>
             <script src="./js/client/chagepassword.js"></script>
             <script src="./js/client/product_detail.js"></script>
             <script src="./js/client/cart_view.js"></script>

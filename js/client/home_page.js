@@ -110,6 +110,9 @@ document.addEventListener('DOMContentLoaded', function() {
 document.getElementById('year').textContent = new Date().getFullYear();
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize navigation
+    window.initializeNavigation();
+    
     const avatar = document.getElementById('userDropdown');
     const dropdownMenu = document.querySelector('.dropdown-menu');
 
@@ -122,21 +125,5 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!avatar.contains(e.target) && !dropdownMenu.contains(e.target)) {
             dropdownMenu.style.display = 'none';
         }
-    });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    const navToggle = document.querySelector('.nav-toggle');
-    const nav = document.querySelector('.nav-menu');
-    
-    navToggle?.addEventListener('click', () => {
-        document.body.classList.toggle('nav-open');
-    });
-
-    // Đóng menu khi click vào link
-    document.querySelectorAll('.menu-list-item a').forEach(link => {
-        link.addEventListener('click', () => {
-            document.body.classList.remove('nav-open');
-        });
     });
 });
