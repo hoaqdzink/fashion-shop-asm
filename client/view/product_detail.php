@@ -2,12 +2,13 @@
 
 if (isset($_POST['add_to_cart'])) {
     $productId = $_POST['product_id'];
+    $sizeId = $_POST['size_id'];
     $productName = $_POST['product_name'];
     $quantity = $_POST['quantity'];
-    if (isset($_SESSION['cart'][$productId])) {
-        $_SESSION['cart'][$productId]['quantity'] += $quantity;
+    if (isset($_SESSION['cart'][$productId."-".$sizeId])) {
+        $_SESSION['cart'][$productId."-".$sizeId]['quantity'] += $quantity;
     } else {
-        $_SESSION['cart'][$productId] = [
+        $_SESSION['cart'][$productId."-".$sizeId] = [
             'product_name' => $productName,
             'product_price' => $_POST['product_price'],
             'size_id' => $_POST['size_id'],
@@ -127,8 +128,8 @@ if (isset($_POST['add_to_cart'])) {
                 <input type="hidden" name="product_name" value="<?= $productId['name'] ?>">
                 <input type="hidden" name="product_price" value="<?= $productId['price'] ?>">
                 <input type="hidden" name="product_image" value="<?= $productId['main_image'] ?>">
-                <input type="text" id="selected_size_id" name="size_id">
-                <input type="text" id="selected_size_name" name="size_name">
+                <input type="hidden" id="selected_size_id" name="size_id">
+                <input type="hidden" id="selected_size_name" name="size_name">
                 <input type="hidden" name="quantity" id="hidden_quantity" value="1">
                 <button type="submit" name="add_to_cart" class="btn btn-primary">Thêm vào giỏ hàng</button>
             </form>

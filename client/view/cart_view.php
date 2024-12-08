@@ -43,11 +43,15 @@ if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) {
         </div>
 <?php
     }
-}
 ?>
-
 <div class="checkout-container-cart">
     <form method="POST" action="">
         <button type="submit" class="btn btn-checkout-cart">Thanh toán</button>
     </form>
 </div>
+<?php
+}
+else{
+    echo '<h1>Bạn chưa có gì trong giỏ hàng</h1>';
+}
+?>
