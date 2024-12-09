@@ -5,10 +5,12 @@ if (isset($_POST['add_to_cart'])) {
     $sizeId = $_POST['size_id'];
     $productName = $_POST['product_name'];
     $quantity = $_POST['quantity'];
-    if (isset($_SESSION['cart'][$productId."-".$sizeId])) {
-        $_SESSION['cart'][$productId."-".$sizeId]['quantity'] += $quantity;
+    $cartId = $productId."-".$sizeId;
+    if (isset($_SESSION['cart'][$cartId])) {
+        $_SESSION['cart'][$cartId]['quantity'] += $quantity;
     } else {
-        $_SESSION['cart'][$productId."-".$sizeId] = [
+        $_SESSION['cart'][$cartId] = [
+            'product_id' => $productId,
             'product_name' => $productName,
             'product_price' => $_POST['product_price'],
             'size_id' => $_POST['size_id'],

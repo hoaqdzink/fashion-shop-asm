@@ -16,7 +16,6 @@ foreach ($billDetails as $item) {
                     <th>Sản phẩm</th>
                     <th>Tên</th>
                     <th>Size</th>
-                    <th>Color</th>
                     <th>Giá</th>
                     <th>Số lượng</th>
                     <th>Thành tiền</th>
@@ -32,7 +31,6 @@ foreach ($billDetails as $item) {
                             </td>
                             <td data-label="Name" class="bill-detail-name"><?= $item['ProductName'] ?></td>
                             <td data-label="Size" class="bill-detail-size"><?= $item['SizeName'] ?></td>
-                            <td data-label="Color" class="bill-detail-color"><?= $item['ColorName'] ?></td>
                             <td data-label="Price" class="bill-detail-price"><?= number_format($item['Price'], 0, ',', '.') ?> VNĐ</td>
                             <td data-label="Quantity" class="bill-detail-quantity"><?= $item['Quantity'] ?></td>
                             <td data-label="Total" class="bill-detail-total"><?= number_format($item['Price'] * $item['Quantity'], 0, ',', '.') ?> VNĐ</td>
@@ -46,7 +44,7 @@ foreach ($billDetails as $item) {
             </tbody>
             <tfoot>
                 <tr class="bill-detail-total-row">
-                    <td colspan="6" class="text-end"><strong>Tổng tiền:</strong></td>
+                    <td colspan="5" class="text-end"><strong>Tổng tiền:</strong></td>
                     <td class="bill-detail-grand-total"><strong><?= number_format($total, 0, ',', '.') ?> VNĐ</strong></td>
                 </tr>
             </tfoot>

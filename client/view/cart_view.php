@@ -14,7 +14,7 @@ if (!isset($_SESSION['idUser'])) {
 // echo '</pre>';
 
 if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) {
-    foreach ($_SESSION['cart'] as $productId => $product) {
+    foreach ($_SESSION['cart'] as $cartId => $product) {
         // Lấy thông tin sản phẩm từ giỏ hàng
         $productName = $product['product_name'];
         $productQuantity = $product['quantity'];
@@ -23,29 +23,30 @@ if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) {
         $sizeName = $product['size_name'];
         $totalPrice = $productQuantity * $productPrice;
 ?>
-        <div class="card-cart">
+        <div id="cart-id-<?= $cartId ?>" class="card-cart">
             <div class="product-row-cart">
                 <img src="<?= $productImage ?>" alt="<?= $productName ?>" class="product-image-cart">
 
                 <div class="product-details-cart">
-                    <h3 class="product-name-cart"><a href="index.php?act=product-details&productId=<?= $productId ?>"><?= $productName ?></a></h3>
+                    <h3 class="product-name-cart"><a href="index.php?act=product-details&productId=<?= $cartId ?>"><?= $productName ?></a></h3>
                     <h3 class="product-name-cart">Size: <?= $sizeName ?></h3>
 
                     <div class="quantity-controls-cart">
-                        <button class="quantity-btn-cart plus-btn-cart" data-product-id="<?= $productId ?>" data-action="decrease">+</button>
-                        <span class="quantity-cart" id="quantity-<?= $productId ?>"><?= $productQuantity ?></span>
-                        <button class="quantity-btn-cart plus-btn-cart" data-product-id="<?= $productId ?>" data-action="increase">+</button>
+                        <button class="quantity-btn-cart plus-btn-cart" data-cart-id="<?= $cartId ?>" data-action="decrease">-</button>
+                        <span class="quantity-cart" id="quantity-<?= $cartId ?>"><?= $productQuantity ?></span>
+                        <button class="quantity-btn-cart plus-btn-cart" data-cart-id="<?= $cartId ?>" data-action="increase">+</button>
                     </div>
                     <p class="price-cart"><?= number_format($productPrice, 0, ',', '.') ?> VNĐ</p>
-                    <p id="totalAmount-<?= $productId ?>" class="total-cart"><?= number_format($totalPrice, 0, ',', '.') ?> VNĐ</p>
+                    <p id="totalAmount-<?= $cartId ?>" class="total-cart"><?= number_format($totalPrice, 0, ',', '.') ?> VNĐ</p>
                 </div>
+                <button class="quantity-btn-cart remove-btn-cart" data-cart-id="<?= $cartId ?>" data-action="remove">Xóa</button>
             </div>
         </div>
 <?php
     }
 ?>
 <div class="checkout-container-cart">
-    <form method="POST" action="">
+    <form method="POST" action="index.php?act=bill_payment">
         <button type="submit" class="btn btn-checkout-cart">Thanh toán</button>
     </form>
 </div>
