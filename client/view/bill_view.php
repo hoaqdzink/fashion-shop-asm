@@ -1,5 +1,10 @@
 <?php
 
+if (!isset($_SESSION['idUser'])) {
+    header('Location: index.php?act=login');
+    exit();
+}
+
 $repositoryConnection = realpath(__DIR__ . '/../../repository/connect.php');
 
 require_once $repositoryConnection;
