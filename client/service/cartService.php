@@ -3,23 +3,32 @@
     if (isset($_POST['update_quantity'])) {
         session_start();
         
-        $productId = $_POST['product_id'];
+        $cartId = $_POST['cart_id'];
         $action = $_POST['action'];
-        // var_dump($_SESSION['cart']);
-        if (isset($_SESSION['cart'][$productId])) {
-            $currentQuantity = $_SESSION['cart'][$productId]['quantity'];
+        if (isset($_SESSION['cart'][$cartId])) {
+            $currentQuantity = $_SESSION['cart'][$cartId]['quantity'];
             if ($action == 'increase') {
-                $_SESSION['cart'][$productId]['quantity'] = $currentQuantity + 1;
+                $_SESSION['cart'][$cartId]['quantity'] = $currentQuantity + 1;
+                echo json_encode([
+                    'success' => true,
+                    'new_total' => number_format(($_SESSION['cart'][$cartId]['quantity'] * $_SESSION['cart'][$cartId]['product_price']), 0, ',', '.').' VNĐ',
+                    'new_quantity' => $_SESSION['cart'][$cartId]['quantity']
+                ]);
             } elseif ($action == 'decrease' && $currentQuantity > 1) {
-                $_SESSION['cart'][$productId]['quantity'] = $currentQuantity - 1;
+                $_SESSION['cart'][$cartId]['quantity'] = $currentQuantity - 1;
+                echo json_encode([
+                    'success' => true,
+                    'new_total' => number_format(($_SESSION['cart'][$cartId]['quantity'] * $_SESSION['cart'][$cartId]['product_price']), 0, ',', '.').' VNĐ',
+                    'new_quantity' => $_SESSION['cart'][$cartId]['quantity']
+                ]);
+            } elseif ($action == 'remove') {
+                unset($_SESSION['cart'][$cartId]);
+                echo json_encode([
+                    'success' => true
+                ]);
             }
     
-            // Trả về phản hồi JSON
-            echo json_encode([
-                'success' => true,
-                'new_total' => number_format(($_SESSION['cart'][$productId]['quantity'] * $_SESSION['cart'][$productId]['product_price']), 0, ',', '.').' VNĐ',
-                'new_quantity' => $_SESSION['cart'][$productId]['quantity']
-            ]);
+            // var_dump($_SESSION['cart']);
         } else {
             echo json_encode([
                 'success' => false,

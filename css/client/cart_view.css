@@ -52,6 +52,10 @@
     margin-right: 15px;
 }
 
+.remove-btn-cart{
+    width: auto !important;
+}
+
 .quantity-btn-cart {
     background-color: #f0f0f0;
     border: none;

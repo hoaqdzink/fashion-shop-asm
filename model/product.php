@@ -57,13 +57,11 @@
             bd.bill_id AS BillId,
             bd.amount AS Quantity,
             s.name AS SizeName,
-            co.name AS ColorName,
             p.main_image AS Image
             FROM 
                 products p
             INNER JOIN bill_detail bd ON bd.product_id = p.product_id
             INNER JOIN sizes s ON s.size_id = bd.size_id
-            INNER JOIN colors co ON co.color_id = bd.color_id
             WHERE bd.bill_id = :id
         ");
         $stmt->bindParam(':id', $billId, PDO::PARAM_INT);
