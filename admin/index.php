@@ -123,7 +123,7 @@
                         include "view/statistical.php";
                     }
                 }else{
-                    header('location: /fashion-shop-asm/index.php');
+                    header('location: index.php');
                 }
                 ?>
                 </div>    

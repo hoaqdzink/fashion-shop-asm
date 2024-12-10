@@ -45,7 +45,7 @@
         $stmt->execute();
 
         unset($_SESSION['cart']);
-        header('location: /fashion-shop-asm/index.php?act=bill-view');
+        header('location: /index.php?act=bill-view');
 
         
     } 

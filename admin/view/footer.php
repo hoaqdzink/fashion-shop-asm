@@ -11,7 +11,7 @@
             <div class="col-6 text-end">
                 <ul class="list-inline">
                     <li class="list-inline-item">
-                        <a href="/fashion-shop-asm/index.php" class="text-muted">Trang chủ</a>
+                        <a href="index.php" class="text-muted">Trang chủ</a>
                     </li>
                     <li class="list-inline-item">
                         <a href="#" class="text-muted">Giới thiệu</a>
