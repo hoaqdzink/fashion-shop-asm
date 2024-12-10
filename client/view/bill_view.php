@@ -12,10 +12,12 @@ $conn = connect();
 try {
 
 
+    $userId = $_SESSION['idUser'];
+    $stmt = $pdo->prepare("SELECT * FROM bill WHERE user_id = :userId");
+    $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    $sql = "SELECT * FROM bill";
-    $stmt = $conn->query($sql);
-    $bill = $stmt->fetchAll(PDO::FETCH_ASSOC);
     // echo json_encode($bill, JSON_PRETTY_PRINT);
 } catch (PDOException $e) {
     echo "<p class='error-message'>Lỗi khi truy vấn database: " . htmlspecialchars($e->getMessage()) . "</p>";
