@@ -58,7 +58,7 @@
 }
 
 .th-category-list {
-    background-color: #4CAF50;
+    background-color: #464c4e;
     color: white;
 }
 
@@ -68,7 +68,7 @@
     border: none;
     border-radius: 3px;
     cursor: pointer;
-    background-color: #008CBA;
+    background-color: #464c4e;
     color: white;
 }
 
