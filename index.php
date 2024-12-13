@@ -2,6 +2,7 @@
     session_start();
     ob_start();
     include './repository/connect.php';
+    include "./repository/s3.php";
     include './model/size.php';
     include './model/color.php';
     include './model/category.php';
@@ -57,6 +58,7 @@
                     unset($_SESSION['role']);
                     unset($_SESSION['idUser']);
                     unset($_SESSION['fullname']);
+                    unset($_SESSION['avatar']);
                     header('Location: index.php');
                     break;
                 case 'change-password':
@@ -81,6 +83,14 @@
                 case 'bill_payment':
                     create_bill_payment();
                     // include "view/form/product/updateProduct.php";
+                    break;
+                case 'profile':
+                    $id = $_SESSION['idUser'];
+                    $user = get_user_by_id($id);
+                    include './client/view/infor.php';
+                    break;
+                case 'account_update':
+                    updateUser();
                     break;
                 default:
                     include './client/view/home.php';

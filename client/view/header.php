@@ -42,10 +42,13 @@
                             <li class="menu-list-item"><a href="index.php?act=cart-view">Giỏ hàng</a></li>
                             <?php 
                                 if(isset($_SESSION['idUser'])&&($_SESSION['idUser']!="")){
+                                    $avatar = isset($_SESSION['avatar']) && !empty($_SESSION['avatar']) 
+                                        ? htmlspecialchars($_SESSION['avatar'], ENT_QUOTES, 'UTF-8') . '?' . time() 
+                                        : './img/image.png';
                                     echo '
                                         <li class="menu-list-item"><a href="index.php?act=bill-view">Lịch sử mua hàng</a></li>
                                         <li class="menu-list-item dropdown">
-                                            <img src="./img/image.png" alt="Avatar" class="avatar" id="userDropdown">
+                                            <img src="' . $avatar . '" alt="Avatar" class="avatar" id="userDropdown">
                                             <div class="dropdown-menu">
                                                 <a href="index.php?act=profile">Thông tin cá nhân</a>
                                                 <a href="index.php?act=change-password">Đổi mật khẩu</a>
