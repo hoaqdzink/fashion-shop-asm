@@ -14,6 +14,9 @@
     include "service/product_service.php";
     include "service/user_service.php";
     include "view/header.php";
+    $category = getAllCategory();
+    $size = getAllSize();
+    $colors = getAllColors();
 ?>    
 
 <body>
@@ -32,9 +35,7 @@
                                 include "view/statistical.php";
                                 break;
                             case 'update_product':
-                                $category = getAllCategory();
-                                $size = getAllSize();
-                                $colors = getAllColors();
+                                
                                 include "view/form/product/addProduct.php";
                                 break;
                             case 'addProduct':
@@ -43,9 +44,6 @@
                             case 'editProduct':
                                 if(isset($_GET['id'])){
                                     $id = $_GET['id'];
-                                    $category = getAllCategory();
-                                    $size = getAllSize();
-                                    $colors = getAllColors();
                                     $product = getByProductId($id);
                                     $size_product = getProductSizeByIdProduct($id);
                                     $images = getImagesbyProductId($id);
