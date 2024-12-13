@@ -92,6 +92,7 @@
                                         u.user_id,
                                         u.full_name,
                                         u.email,
+                                        u.avatar,
                                         r.role_name,
                                         r.role_id
                                     FROM 

@@ -34,6 +34,7 @@
                 $_SESSION['role'] = $role;
                 $_SESSION['idUser'] = $kq['user_id'];
                 $_SESSION['fullname'] = $kq['full_name'];
+                $_SESSION['avatar'] = $kq['avatar'];
     
                 // Điều hướng dựa trên vai trò
                 if ($role == 1) {
@@ -78,4 +79,43 @@
         }
     }
     
+    function updateUser() {
+        try {
+            if (isset($_POST['account_update']) && $_POST['account_update']) {
+                $id = $_SESSION['idUser'];
+                $fullname = $_POST['full_name'];
+                $email = $_POST['email'];
+                $password = $_POST['password'];
+                $birth = $_POST['date_of_birth'];
+                $role = $_SESSION['role'];
+
+                // Kiểm tra và xử lý avatar (nếu có tải lên)
+                if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] == 0) {
+                    $avatar_url = uploadImageToS3($_FILES['avatar']);
+                    $_SESSION['avatar'] = $avatar_url;
+                    if (!$avatar_url) {
+                        echo 'Lỗi tải avatar lên S3';
+                        $avatar_url = null;
+                    }
+                } else {
+                    $user = get_user_by_id($id);
+                    if ($user) {
+                        $avatar_url = $user['avatar']; // Giữ lại ảnh cũ
+                    } else {
+                        echo "Không tìm thấy sản phẩm để cập nhật.<br>";
+                        return;
+                    }
+                }
+    
+                // Gọi hàm cập nhật người dùng trong database
+                update_user($id, $email, $password, $fullname, $birth, $avatar_url, $role);
+    
+                // Điều hướng về danh sách tài khoản
+                header('location: index.php?act=profile');
+                exit();
+            }
+        } catch (Exception $e) {
+            echo '<h4 style="color: red;">Không cập nhật được tài khoản<br></h4>';
+        }
+    }
 ?>

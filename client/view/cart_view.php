@@ -47,7 +47,7 @@ if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) {
 ?>
 <div class="checkout-container-cart">
     <form method="POST" action="index.php?act=bill_payment">
-        <button type="submit" class="btn btn-checkout-cart">Thanh toán</button>
+        <button type="submit" class="btn btn-dark">Thanh toán</button>
     </form>
 </div>
 <?php
