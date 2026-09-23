@@ -6,8 +6,8 @@
     // Thông tin kết nối S3
     $region = 'ap-southeast-2';
     $version = 'latest';
-    $access_key_id = 'AKIAYQNJS6M56LXY5MM2'; 
-    $secret_access_key = '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'; 
+    $access_key_id = ''; 
+    $secret_access_key = ''; 
     $bucket = 'phpasm';
 
     $statusMsg = '';
